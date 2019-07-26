@@ -1,3 +1,4 @@
+**************************************
 nodemcu 的板载LED的引脚是2号
 循环点亮LED程序：
 from machine import Pin
@@ -12,3 +13,15 @@ def flash_led(gpio_led):
         p0.value(0)
         time.sleep_ms(300)
 flash_led(2)
+
+*****************************************
+PWM模块
+duty circle表示占空比，PWM模块中duty的取值范围0-1023
+from machine import Pin, PWM
+import time
+pwm0 = PWM(Pin(2))  # create PWM object from a pin
+pwm0.freq(1)  # set frequency
+pwm0.duty(512)  # set duty cycle
+print('123')
+time.sleep(5)
+pwm0.deinit()  # turn off PWM on the pin
